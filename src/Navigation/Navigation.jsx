@@ -13,7 +13,9 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="OnBoarding" component={OnBoardingScreen} />
+        <Stack.Screen name="OnBoarding" component={OnBoardingScreen} options={{
+              headerShown: false,
+            }}/>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Applicants" component={ApplicantsScreen} />
