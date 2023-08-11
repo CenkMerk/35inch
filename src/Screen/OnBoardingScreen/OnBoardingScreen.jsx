@@ -1,9 +1,12 @@
 import { Text, View } from "react-native";
 import React from "react";
 import styles from "./Styles.js";
-import Button from "../../Components/Button/Button.jsx";
+import ButtonComp from "../../Components/ButtonComp/ButtonComp.jsx";
+import { useNavigation } from "@react-navigation/native";
 
 export default function OnBoardingScreen() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Lorem Ipsum</Text>
@@ -13,17 +16,17 @@ export default function OnBoardingScreen() {
           Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
           turpis molestie, dictum est a, mattis tellus
         </Text>
-        <Button
+        <ButtonComp
           btnText="Login"
           btnColor="#FF6464"
           btnWidth={327}
-          btnNavigate="Login"
+          btnClick={() => navigation.navigate("Login")}
         />
-        <Button
+        <ButtonComp
           btnText="Sign Up"
           btnColor="#74C6F7"
           btnWidth={327}
-          btnNavigate="Register"
+          btnClick={() => navigation.navigate("Register")}
         />
       </View>
     </View>
