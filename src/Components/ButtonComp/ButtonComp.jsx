@@ -1,19 +1,23 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 
-export default function Button({ btnText, btnColor, btnWidth, btnNavigate }) {
-  const navigation = useNavigation();
-
+export default function ButtonComp({
+  btnText,
+  btnColor,
+  btnWidth,
+  btnClick,
+  btnMarginTop,
+}) {
   const buttonBgColor = {
     backgroundColor: btnColor,
     width: btnWidth,
+    marginTop: btnMarginTop,
   };
-  
+
   return (
     <TouchableOpacity
       style={[styles.container, buttonBgColor]}
-      onPress={() => navigation.navigate(btnNavigate)}
+      onPress={btnClick}
     >
       <Text style={styles.buttonText}>{btnText}</Text>
     </TouchableOpacity>
