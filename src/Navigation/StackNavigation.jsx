@@ -6,9 +6,8 @@ const Stack = createNativeStackNavigator();
 import OnBoardingScreen from "../Screen/OnBoardingScreen/OnBoardingScreen";
 import RegisterScreen from "../Screen/RegisterScreen/RegisterScreen";
 import LoginScreen from "../Screen/LoginScreen/LoginScreen";
-import ApplicantsScreen from "../Screen/ApplicantsScreen/ApplicantsScreen";
-import AddandEditScreen from "../Screen/AddandEditScreen/AddandEditScreen";
 import HeaderLeftButton from "../Components/HeaderLeftButton/HeaderLeftButton";
+import ApplicantsTabs from "./TabNavigation";
 
 export default function Navigation() {
   return (
@@ -46,17 +45,11 @@ export default function Navigation() {
         />
         <Stack.Screen
           name="Applicants"
-          component={ApplicantsScreen}
+          component={ApplicantsTabs}
           options={{
-            title: "Users",
-            headerStyle: {
-              backgroundColor: "#F6F6F6",
-            },
-            headerShadowVisible: false,
-            headerBackVisible: false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="AddandEdit" component={AddandEditScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
