@@ -1,6 +1,6 @@
 import { TouchableOpacity } from "react-native";
 import React from "react";
-import LeftArrowIcon from "../../constants/LeftArrowIcon";
+import LeftArrowSVG from "../../constants/LeftArrowSVG";
 import { useNavigation } from "@react-navigation/native";
 
 export default function HeaderLeftButton() {
@@ -12,7 +12,7 @@ export default function HeaderLeftButton() {
 
   return (
     <TouchableOpacity onPress={HandleClick}>
-      <LeftArrowIcon />
+      <LeftArrowSVG />
     </TouchableOpacity>
   );
 }

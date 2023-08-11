@@ -1,9 +1,7 @@
-// LeftArrowIcon.js
-
 import React from "react";
 import Svg, { Path, Rect } from "react-native-svg";
 
-export default function LeftArrowIcon() {
+export default function LeftArrowSVG() {
   return (
     <Svg
       width="44"
