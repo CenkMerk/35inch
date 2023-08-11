@@ -44,7 +44,18 @@ export default function Navigation() {
             headerLeft: () => <HeaderLeftButton />,
           }}
         />
-        <Stack.Screen name="Applicants" component={ApplicantsScreen} />
+        <Stack.Screen
+          name="Applicants"
+          component={ApplicantsScreen}
+          options={{
+            title: "Users",
+            headerStyle: {
+              backgroundColor: "#F6F6F6",
+            },
+            headerShadowVisible: false,
+            headerBackVisible: false
+          }}
+        />
         <Stack.Screen name="AddandEdit" component={AddandEditScreen} />
       </Stack.Navigator>
     </NavigationContainer>
