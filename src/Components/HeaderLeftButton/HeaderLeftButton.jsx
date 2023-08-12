@@ -7,7 +7,7 @@ export default function HeaderLeftButton() {
   const navigation = useNavigation();
 
   const HandleClick = () => {
-    navigation.navigate("OnBoarding");
+    navigation.goBack();
   };
 
   return (

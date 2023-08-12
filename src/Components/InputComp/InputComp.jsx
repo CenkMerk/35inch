@@ -30,9 +30,9 @@ export default function InputComp({
       
       {fieldName === "password" && (
         <Ionicons
-          style={{ position: "absolute", right: 15, top: "50%" }}
+          style={{ position: "absolute", right: 15, top:36 }}
           name={secure ? "eye-off-outline" : "eye-outline"}
-          size={24}
+          size={30}
           color="grey"
           onPress={() => setSecure(!secure)}
         />
