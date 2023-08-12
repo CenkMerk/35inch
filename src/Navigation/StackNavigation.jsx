@@ -3,9 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Stack = createNativeStackNavigator();
 
+//screens
+import EditScreen from "../Screen/EditScreen/EditScreen";
 import OnBoardingScreen from "../Screen/OnBoardingScreen/OnBoardingScreen";
 import RegisterScreen from "../Screen/RegisterScreen/RegisterScreen";
 import LoginScreen from "../Screen/LoginScreen/LoginScreen";
+
 import HeaderLeftButton from "../Components/HeaderLeftButton/HeaderLeftButton";
 import ApplicantsTabs from "./TabNavigation";
 
@@ -36,6 +39,18 @@ export default function Navigation() {
           name="Login"
           component={LoginScreen}
           options={{
+            headerStyle: {
+              backgroundColor: "#F6F6F6",
+            },
+            headerShadowVisible: false,
+            headerLeft: () => <HeaderLeftButton />,
+          }}
+        />
+        <Stack.Screen
+          name="EditUser"
+          component={EditScreen}
+          options={{
+            title:"Edit User",
             headerStyle: {
               backgroundColor: "#F6F6F6",
             },

@@ -1,8 +1,9 @@
 import { Text, View } from "react-native";
 import React from "react";
-import styles from "./Styles.js";
-import ButtonComp from "../../Components/ButtonComp/ButtonComp.jsx";
 import { useNavigation } from "@react-navigation/native";
+import styles from "./Styles.js";
+//components
+import ButtonComp from "../../Components/ButtonComp/ButtonComp.jsx";
 
 export default function OnBoardingScreen() {
   const navigation = useNavigation();
