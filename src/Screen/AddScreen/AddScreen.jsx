@@ -27,7 +27,7 @@ export default function AddScreen() {
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
-  const [statusValue, setStatusValue] = useState(null);
+  const [statusValue, setStatusValue] = useState("Active");
   const [statusItems, setStatusItems] = useState([
     { label: "Active", value: "Active" },
     { label: "Passive", value: "Passive" },
