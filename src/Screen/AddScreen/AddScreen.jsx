@@ -1,19 +1,20 @@
 import {
   StatusBar,
-  Text,
   View,
-  ScrollView,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import styles from "./AddScreenStyle";
 import { useNavigation } from "@react-navigation/native";
-import styles from "./Style";
+import DropDownPicker from "react-native-dropdown-picker";
 import { Formik } from "formik";
 import * as Yup from "yup";
 //components
 import ButtonComp from "../../Components/ButtonComp/ButtonComp";
 import InputComt from "../../Components/InputComp/InputComp";
+
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -29,17 +30,28 @@ const SignupSchema = Yup.object().shape({
     .matches(/^(?=.*[0-9])/, "  Must Contain One Number Character"),
 });
 
-export default function RegisterScreen() {
+import UserAvatarIcon from "../../constants/UserAvatarIcon";
+
+export default function AddScreen() {
   const navigation = useNavigation();
-  const handleSubmit = (values) => {
-    // console.log(values);
-    navigation.navigate("OnBoarding");
-  };
+
+  const [open, setOpen] = useState(false);
+  const [statusValue, setStatusValue] = useState();
+  const [statusItems, setStatusItems] = useState([
+    { label: "Active", value: "Active" },
+    { label: "Passive", value: "Passive" },
+  ]);
+
   const formFields = [
     { name: "name", placeholder: "Full Name" },
     { name: "email", placeholder: "Email Address" },
-    { name: "password", placeholder: "Password" },
+    { name: "phoneNumber", placeholder: "Phone Number" },
   ];
+  const handleSubmit = (values) => {
+    // console.log({ values, statusValue });
+    navigation.navigate("Users");
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -47,14 +59,17 @@ export default function RegisterScreen() {
       keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
     >
       <StatusBar barStyle="dark-content" />
-      <Text style={styles.textHello}>Hello There 🖐</Text>
-      <Text style={styles.title}>Create an account</Text>
       <ScrollView
-        contentContainerStyle={styles.formContainer}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.formContainer}
       >
+        <View style={styles.AvatarBigContainer}>
+          <View style={styles.AvatarContainer}>
+            <UserAvatarIcon />
+          </View>
+        </View>
         <Formik
-          initialValues={{ name: "", email: "", password: "" }}
+          initialValues={{ name: "", email: "", phoneNumber: "" }}
           validationSchema={SignupSchema}
           onSubmit={(values) => handleSubmit(values)}
         >
@@ -80,10 +95,31 @@ export default function RegisterScreen() {
                   />
                 </React.Fragment>
               ))}
+              <DropDownPicker
+                open={open}
+                value={statusValue}
+                items={statusItems}
+                setOpen={setOpen}
+                setValue={setStatusValue}
+                setItems={setStatusItems}
+                placeholder="Status"
+                placeholderStyle={{
+                  color: "#28282866",
+                  fontWeight: "600",
+                }}
+                style={{
+                  borderWidth: "none",
+                  marginTop: 20,
+                }}
+                dropDownContainerStyle={{
+                  borderWidth: 0,
+                  marginTop: 10,
+                }}
+              />
               <ButtonComp
                 btnClick={handleSubmit}
-                btnColor="#FF6464"
-                btnText="Sign Up"
+                btnColor="#42CD00"
+                btnText="Add"
                 btnWidth={327}
                 btnMarginTop={50}
               />

@@ -1,5 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import React from "react";
+import styles from "./ButtomCompStyles"
 
 export default function ButtonComp({
   btnText,
@@ -24,17 +25,4 @@ export default function ButtonComp({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: 52,
-    borderRadius: 30,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 15,
-  },
-});
+

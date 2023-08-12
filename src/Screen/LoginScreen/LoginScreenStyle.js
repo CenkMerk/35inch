@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     gap: 20,
+    paddingBottom:50
+
   },
 });
 export default styles;

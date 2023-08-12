@@ -7,13 +7,15 @@ import {
   Platform,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import styles from "./LoginScreenStyle";
-import LoginLogoSVG from "../../constants/LoginLogoSVG";
 import { Formik } from "formik";
 import * as Yup from "yup";
+//componets
 import ButtonComp from "../../Components/ButtonComp/ButtonComp";
 import InputComt from "../../Components/InputComp/InputComp";
-import { useNavigation } from "@react-navigation/native";
+//SVG
+import LoginLogoSVG from "../../constants/LoginLogoSVG";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -27,14 +29,16 @@ const SignupSchema = Yup.object().shape({
 
 export default function LoginScreen() {
   const navigation = useNavigation();
+  
   const handleSubmit = (values) => {
-    console.log(values);
+    // console.log(values);
     navigation.navigate("Applicants");
   };
   const formFields = [
     { name: "email", placeholder: "Email Address" },
     { name: "password", placeholder: "Password" },
   ];
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
