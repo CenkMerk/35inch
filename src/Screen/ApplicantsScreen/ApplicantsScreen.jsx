@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { FlatList, Text, View } from "react-native";
+import React from "react";
+import styles from "./ApplicantScreenStyle";
+import UserList from "../../Components/UserList/UserList";
 
 export default function ApplicantsScreen() {
   return (
-    <View>
-      <Text>ApplicantsScreen</Text>
+    <View style={styles.container}>
+      <UserList />
     </View>
-  )
+  );
 }
-
-const styles = StyleSheet.create({})
