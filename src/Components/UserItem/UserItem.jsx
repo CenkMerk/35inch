@@ -6,9 +6,9 @@ import { useNavigation } from "@react-navigation/native";
 export default function UserItem({ item }) {
   const navigation = useNavigation();
 
-  const handlePress =()=>{
-    navigation.navigate("AddandEdit")
-  }
+  const handlePress = () => {
+    navigation.navigate("AddandEdit", { title: item.fullName, userData: item });
+  };
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <View style={styles.AvatarContainer}>

@@ -8,7 +8,7 @@ import AddandEditScreen from "../Screen/AddandEditScreen/AddandEditScreen";
 import UserTabIconSVG from "../constants/UserTabIconSVG";
 import LogoutTabIconSVG from "../constants/LogoutTabIconSVG";
 import AddTabIconSVG from "../constants/AddTabIconSVG";
-import { View, Text, Platform } from "react-native";
+import { View, Text, Platform, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export default function ApplicantsTabs() {
@@ -36,26 +36,35 @@ export default function ApplicantsTabs() {
       <Tab.Screen
         name="AddandEdit"
         component={AddandEditScreen}
-        options={{
+        options={({ route, navigation }) => ({
+          title: route.params.title,
           tabBarIcon: () => {
             return (
-              <View
-                style={{
-                  backgroundColor: "white",
-                  marginBottom: 65,
-                  width: Platform.OS == "ios" ? 70 : 80,
-                  height: Platform.OS == "ios" ? 70 : 80,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: "50%",
-                }}
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("AddandEdit", {
+                    title: "Add User",
+                  })
+                }
               >
-                <AddTabIconSVG />
-              </View>
+                <View
+                  style={{
+                    backgroundColor: "white",
+                    marginBottom: 65,
+                    width: Platform.OS === "ios" ? 70 : 80,
+                    height: Platform.OS === "ios" ? 70 : 80,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                  }}
+                >
+                  <AddTabIconSVG />
+                </View>
+              </TouchableOpacity>
             );
           },
           tabBarShowLabel: false,
-        }}
+        })}
       />
       <Tab.Screen
         name="Logut"
